@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>364</width>
-    <height>337</height>
+    <width>332</width>
+    <height>349</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -69,6 +69,16 @@
      </layout>
     </item>
     <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Donations: 1AthBNQdw3Lva92EJCGYD7C8fiac9c4CLw</string>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+      </property>
+     </widget>
+    </item>
+    <item>
      <widget class="QProgressBar" name="progressBar">
       <property name="maximum">
        <number>0</number>
@@ -82,7 +92,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>364</width>
+     <width>332</width>
      <height>20</height>
     </rect>
    </property>
