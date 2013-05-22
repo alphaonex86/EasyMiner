@@ -1,0 +1,25 @@
+#include <windows.h>
+
+1 VERSIONINFO
+FILEFLAGSMASK 0x3fL
+FILETYPE VFT_APP
+{
+	BLOCK "StringFileInfo"
+	{
+		BLOCK "040904E4"
+		{
+			VALUE "CompanyName", "ultracopier.first-world.info"
+			VALUE "FileDescription", "Easy Miner"
+			VALUE "InternalName", "easyminer.exe"
+			VALUE "OriginalFilename", "easyminer.exe"
+			VALUE "ProductName", "Easy Miner"
+		}
+	}
+	BLOCK "VarFileInfo"
+	{
+		VALUE "Translation", 0x0409, 1252
+	}
+}
+
+IDI_ICON1               ICON    DISCARDABLE     "icon.ico"
+

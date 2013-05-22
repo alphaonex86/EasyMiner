@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>364</width>
+    <height>337</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string notr="true">Easy Miner</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/bitcoin-16x16.png</normaloff>:/bitcoin-16x16.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelBitcoin">
+        <property name="minimumSize">
+         <size>
+          <width>256</width>
+          <height>256</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>256</width>
+          <height>256</height>
+         </size>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="resources.qrc">:/bitcoin-256x256.png</pixmap>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QProgressBar" name="progressBar">
+      <property name="maximum">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>364</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionLogin"/>
+    <addaction name="actionMinimize"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuTranslation">
+    <property name="title">
+     <string>Translation</string>
+    </property>
+    <addaction name="actionEnglish"/>
+    <addaction name="actionFran_ais"/>
+    <addaction name="actionEspanol"/>
+   </widget>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="actionStart_minimized"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuOptions"/>
+   <addaction name="menuTranslation"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionLogin">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/document-decrypt.png</normaloff>:/icons/document-decrypt.png</iconset>
+   </property>
+   <property name="text">
+    <string>Login</string>
+   </property>
+  </action>
+  <action name="actionMinimize">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/code-typedef.png</normaloff>:/icons/code-typedef.png</iconset>
+   </property>
+   <property name="text">
+    <string>Minimize</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/dialog-close.png</normaloff>:/icons/dialog-close.png</iconset>
+   </property>
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionEnglish">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/en.png</normaloff>:/icons/en.png</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">English</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">English</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">English</string>
+   </property>
+  </action>
+  <action name="actionFran_ais">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/fr.png</normaloff>:/icons/fr.png</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">Français</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Français</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Français</string>
+   </property>
+  </action>
+  <action name="actionEspanol">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/es.png</normaloff>:/icons/es.png</iconset>
+   </property>
+   <property name="text">
+    <string notr="true">Español‎</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">Español‎</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">Español‎</string>
+   </property>
+  </action>
+  <action name="actionStart_minimized">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/code-typedef.png</normaloff>:/icons/code-typedef.png</iconset>
+   </property>
+   <property name="text">
+    <string>Start minimized</string>
+   </property>
+   <property name="toolTip">
+    <string>Start minimized</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

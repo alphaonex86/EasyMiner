@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>bitcoin-256x256.png</file>
+        <file>bitcoin-16x16.png</file>
+        <file>icons/code-typedef.png</file>
+        <file>icons/dialog-close.png</file>
+        <file>icons/document-decrypt.png</file>
+        <file>icons/en.png</file>
+        <file>icons/es.png</file>
+        <file>icons/fr.png</file>
+        <file>icons/user-identity.png</file>
+        <file>ts/es.qm</file>
+        <file>ts/fr.qm</file>
+        <file>bitcoin-disabled-256x256.png</file>
+    </qresource>
+</RCC>
