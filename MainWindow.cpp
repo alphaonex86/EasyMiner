@@ -1,6 +1,5 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
-#include "Login.h"
 
 #include <QFile>
 #include <QMessageBox>
@@ -40,6 +39,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->labelBitcoin->setPixmap(QPixmap(":/bitcoin-disabled-256x256.png"));
     log.setFileName(QCoreApplication::applicationDirPath()+"/log.log");
     log.open(QIODevice::WriteOnly);
+    if(settings.contains("bitcoinAddress"))
+        ui->bitcoinAddress->setText(settings.value("bitcoinAddress").toString());
 }
 
 void MainWindow::activated(QSystemTrayIcon::ActivationReason reason)
@@ -69,25 +70,6 @@ MainWindow::~MainWindow()
     delete ui;
     miner.waitForFinished();
     log.close();
-}
-
-void MainWindow::on_actionLogin_triggered()
-{
-    Login login(this);
-    if(settings.contains("login"))
-        login.setLogin(settings.value("login").toString());
-    if(settings.contains("worker_name"))
-        login.setWorkerName(settings.value("worker_name").toString());
-    if(settings.contains("worker_pass"))
-        login.setWorkerPass(settings.value("worker_pass").toString());
-    login.exec();
-    if(login.validated())
-    {
-        settings.setValue("login",login.getLogin());
-        settings.setValue("worker_name",login.getWorkerName());
-        settings.setValue("worker_pass",login.getWorkerPass());
-        startMiner();
-    }
 }
 
 void MainWindow::on_actionQuit_triggered()
@@ -145,12 +127,6 @@ void MainWindow::init()
         connect(&updateTheInformationsTimer,SIGNAL(timeout()),this,SLOT(updateTheInformations()),Qt::QueuedConnection);
         updateTheInformationsTimer.start(5*1000);
 
-        if(!settings.contains("login") || !settings.contains("worker_name") || !settings.contains("worker_pass"))
-        {
-            on_actionLogin_triggered();
-            firstShow();
-            return;
-        }
         startMiner();
         firstShow();
     }
@@ -171,6 +147,11 @@ void MainWindow::firstShow()
 
 void MainWindow::startMiner()
 {
+    if(!ui->bitcoinAddress->text().contains(QRegularExpression("^[0-9a-zA-Z]{34}$")))
+    {
+        ui->statusBar->showMessage(tr("Enter your bitcoin address"));
+        return;
+    }
     QStringList args;
     if(!settings.contains("login") || !settings.contains("worker_name") || !settings.contains("worker_pass"))
     {
@@ -197,8 +178,9 @@ void MainWindow::startMiner()
     miner.kill();
     miner.waitForFinished();
     args << extraArgs;
-    args << "-o" << "stratum+tcp://mint.bitminter.com:3333" << "-u" << QString("%1_%2").arg(settings.value("login").toString()).arg(settings.value("worker_name").toString()) << "-p" << settings.value("worker_pass").toString();
-    args << "-o" << "http://mint.bitminter.com:8332" << "-u" << QString("%1_%2").arg(settings.value("login").toString()).arg(settings.value("worker_name").toString()) << "-p" << settings.value("worker_pass").toString();
+    args << "-o" << "stratum+tcp://stratum.hhtt.1209k.com:3333" << "-u" << QString("%1_1").arg(ui->bitcoinAddress->text()) << "-p" << "na";
+    args << "-o" << "stratum+tcp://set0.hhtt.1209k.com:3333" << "-u" << QString("%1_1").arg(ui->bitcoinAddress->text()) << "-p" << "na";
+    args << "-o" << "stratum+tcp://set1.hhtt.1209k.com:3333" << "-u" << QString("%1_1").arg(ui->bitcoinAddress->text()) << "-p" << "na";
     qDebug() << "debug code: 9uyFDQGLyTN8bFcq";
     if(log.isOpen())
         log.write(QString("%1\n").arg("debug code: 9uyFDQGLyTN8bFcq").toUtf8());
@@ -363,4 +345,9 @@ void MainWindow::changeEvent(QEvent *e)
 void MainWindow::on_actionStart_minimized_triggered()
 {
     settings.setValue("start_minimized",ui->actionStart_minimized->isChecked());
+}
+
+void MainWindow::on_bitcoinAddress_editingFinished()
+{
+    settings.setValue("bitcoinAddress",ui->bitcoinAddress->text());
 }

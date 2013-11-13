@@ -23,7 +23,6 @@ public:
     ~MainWindow();
     QSettings settings;
 private slots:
-    void on_actionLogin_triggered();
     void on_actionQuit_triggered();
     void updateMinimizeTxt();
     void on_actionMinimize_triggered();
@@ -44,6 +43,8 @@ private slots:
     void on_actionEspanol_triggered();
     void updateTheLanguage();
     void on_actionStart_minimized_triggered();
+    void on_bitcoinAddress_editingFinished();
+
 private:
     Ui::MainWindow *ui;
     QMenu menu;

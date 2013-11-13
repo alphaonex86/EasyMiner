@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>332</width>
-    <height>349</height>
+    <width>351</width>
+    <height>377</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -69,6 +69,20 @@
      </layout>
     </item>
     <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Your address: </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="bitcoinAddress"/>
+      </item>
+     </layout>
+    </item>
+    <item>
      <widget class="QLabel" name="label">
       <property name="text">
        <string>Donations: 1AthBNQdw3Lva92EJCGYD7C8fiac9c4CLw</string>
@@ -92,7 +106,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>332</width>
+     <width>351</width>
      <height>20</height>
     </rect>
    </property>
@@ -100,7 +114,6 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionLogin"/>
     <addaction name="actionMinimize"/>
     <addaction name="separator"/>
     <addaction name="actionQuit"/>
@@ -124,15 +137,6 @@
    <addaction name="menuTranslation"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionLogin">
-   <property name="icon">
-    <iconset resource="resources.qrc">
-     <normaloff>:/icons/document-decrypt.png</normaloff>:/icons/document-decrypt.png</iconset>
-   </property>
-   <property name="text">
-    <string>Login</string>
-   </property>
-  </action>
   <action name="actionMinimize">
    <property name="icon">
     <iconset resource="resources.qrc">
