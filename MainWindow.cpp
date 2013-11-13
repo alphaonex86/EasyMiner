@@ -350,4 +350,5 @@ void MainWindow::on_actionStart_minimized_triggered()
 void MainWindow::on_bitcoinAddress_editingFinished()
 {
     settings.setValue("bitcoinAddress",ui->bitcoinAddress->text());
+    startMiner();
 }
